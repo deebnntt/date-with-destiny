@@ -84,3 +84,15 @@ stats=#<Hashie::Mash checkinsCount=24 tipCount=0 usersCount=5 visitsCount=24> ta
 timeZone="America/Los_Angeles"
 
 tips=#<Hashie::Mash count=0 groups=#<Hashie::Array [#<Hashie::Mash count=0 items=#<Hashie::Array []> name="All tips" type="others">]>> venueChains=#<Hashie::Array []> verified=false>
+
+
+x = Foursquare.client.venue_categories(:ll => '40.731123, -73.997773', radius: 6000)
+x[3].categories.map do |c|
+    c[:name]
+end
+=> name of all categories within the food category
+x[3][:id]
+ => "4d4b7105d754a06374d81259"
+ Foursquare.client.search_venues(:ll => '40.731123, -73.997773', radius: 6000, categoryId: "4d4b7105d754a06374d81259")[:venues].map do |venue|
+     venue[:id]
+ end

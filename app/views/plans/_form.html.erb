@@ -1,0 +1,10 @@
+<%= form_for @plan do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+
+  <%= f.label :zipcode %>
+  <%= f.select(:zipcode, Venue.zipcodes) %>
+
+  <%= f.submit "Generate a date!" %>
+
+  <% end %>
