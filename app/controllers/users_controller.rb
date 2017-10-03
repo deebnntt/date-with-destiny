@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -33,11 +34,11 @@ class UsersController < ApplicationController
   private
 
   def find_user
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def user_params
-    params.require(:plan).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :password)
   end
 
 

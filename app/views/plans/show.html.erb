@@ -1,1 +1,4 @@
 <h1> Plan for <%= @plan.date %>, go to <%= @plan.venue.name %></h1>
+
+<%= link_to 'edit plan', edit_plan_path(@plan) %>
+<%= link_to 'delete plan', plan_path(@plan), method: 'delete' %>

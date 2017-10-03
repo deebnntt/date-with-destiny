@@ -1,1 +1,15 @@
-<%= render 'form' %>
+<%  if @plan.errors.any? %>
+  <% @plan.errors.full_messages.each do |m| %>
+  <%= m %><br>
+  <% end %>
+<% end %>
+
+<%= form_for @plan do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <%= f.submit %>
+<% end %>
+
+<p> Your venue is: <%= @plan.venue.name %> </p>
+
+<%= link_to 'delete plan', plan_path(@plan), method: 'delete' %>

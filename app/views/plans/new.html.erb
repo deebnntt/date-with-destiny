@@ -1,3 +1,9 @@
+<%  if @plan.errors.any? %>
+  <% @plan.errors.full_messages.each do |m| %>
+  <%= m %><br>
+  <% end %>
+<% end %>
+
 <%= form_for @plan do |f| %>
   <%= f.label :date %>
   <%= f.date_field :date %>

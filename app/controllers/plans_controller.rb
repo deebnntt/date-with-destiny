@@ -9,9 +9,8 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan = Plan.new(plan_params)
-    byebug
-    # @plan.user_id =  #use sessions
+    @plan = Plan.new(plan_params(:date, :venue_id))
+    @plan.user_id = session[:id]
     if @plan.save
       redirect_to plan_path(@plan)
     else
@@ -25,11 +24,17 @@ class PlansController < ApplicationController
 
   def update
     find_plan
-    if @plan.update(plan_params)
+    if @plan.update(plan_params(:date))
       redirect_to plan_path(@plan)
     else
       render :edit
     end
+  end
+
+  def destroy
+    find_plan
+    @plan.destroy
+    redirect_to user_path(current_user)
   end
 
   private
@@ -38,8 +43,8 @@ class PlansController < ApplicationController
     @plan = Plan.find_by(id: params[:id])
   end
 
-  def plan_params
-    params.require(:plan).permit(:date, :venue_id)
+  def plan_params(*args)
+    params.require(:plan).permit(args)
   end
 
 end
