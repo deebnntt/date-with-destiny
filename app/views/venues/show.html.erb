@@ -1,0 +1,16 @@
+<h1><%= @venue.name %></h1>
+
+<ul>
+  <li><%= @venue.street_address %></li>
+  <li><%= @venue.city %></li>
+  <li><%= @venue.state %></li>
+  <li><%= @venue.zipcode %></li>
+  <li><%= @venue.category %></li>
+</ul>
+
+<%= form_tag new_plan_path, method: 'get' do %>
+  <%= hidden_field_tag :venue_id, @venue.id %>
+<%= submit_tag 'follow your destiny' %>
+  <% end %>
+
+<%= link_to 'defy your fate', venues_start_path %>

@@ -1,1 +1,8 @@
-<%= render 'form' %>
+<%= form_for @plan do |f| %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <%= f.hidden_field :venue_id, :value => @plan.venue_id %>
+  <%= f.submit %>
+<% end %>
+
+<p> Your venue is: <%= @plan.venue.name %> </p>

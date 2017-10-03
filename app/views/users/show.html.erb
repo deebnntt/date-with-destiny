@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+
+<h2>Your plans</h2>
+
+<%= User.plans.each do |pl| %>
+<h1> Plan for <%= pl.date %>, go to <%= link_to pl.venue.name, plan_path(pl) %></h1>
+<% end %>
