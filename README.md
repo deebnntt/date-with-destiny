@@ -7,3 +7,5 @@ Goal: To make date planning easier by providing three activities (day activity, 
 + Uses Foursquare2 for Foursquare fetch - https://github.com/mattmueller/foursquare2
 
 A collaboration with @annabush092 - https://github.com/annabush092
+
+Demo Video: https://vimeo.com/247390813
