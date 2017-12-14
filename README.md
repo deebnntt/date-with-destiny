@@ -9,3 +9,5 @@ Goal: To make date planning easier by providing three activities (day activity, 
 A collaboration with @annabush092 - https://github.com/annabush092
 
 Demo Video: https://vimeo.com/247390916
+
+![](https://media.giphy.com/media/26xix6zDMOSrKEOyY/giphy.gif)
